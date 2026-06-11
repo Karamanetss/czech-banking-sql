@@ -8,7 +8,7 @@ Credit risk, customer behavior and transaction patterns, done in PostgreSQL.
 Anonymized data from a real Czech bank: 8 tables, just over a million transactions,
 4,500 accounts, 682 loans across 77 districts.
 
-Source: https://sorry.vse.cz/~berka/challenge/pkdd1999/berka.htm](https://relational.fel.cvut.cz/dataset/Financial
+Source: https://relational.fel.cvut.cz/dataset/Financial
 
 ## Files
 
