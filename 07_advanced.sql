@@ -32,7 +32,7 @@ SELECT * FROM (
         RANK() OVER (PARTITION BY region ORDER BY avg_balance DESC) AS region_rank
     FROM account_balance
 ) AS ranked
-WHERE region_rank <= 10
+WHERE region_rank <= 10;
 
 -- Finding: This query finds the top 10 accounts with the highest average balance
 -- in each region, using RANK(). 
@@ -59,7 +59,7 @@ SELECT
     avg_balance,
 	ROUND(AVG(avg_balance) OVER (PARTITION BY region), 2) AS region_avg,
 	ROUND(avg_balance - AVG(avg_balance) OVER (PARTITION BY region), 2) AS diff
-FROM account_balance
+FROM account_balance;
 
 -- Finding: This query compares each account's balance to the average in its region
 -- The results show that balances vary widely within every region
@@ -88,7 +88,6 @@ SELECT
         2
     ) AS growth_pct
 FROM monthly
-
 ORDER BY trans_month;
 
 -- Finding: Transaction volume shows strong seasonal patterns repeating every year.
@@ -110,7 +109,7 @@ SELECT * FROM (
         RANK() OVER (PARTITION BY duration ORDER BY amount DESC) AS rank_in_duration
     FROM loan_clean
 ) AS ranked
-WHERE rank_in_duration <= 3
+WHERE rank_in_duration <= 3;
 
 -- Finding: As expected, larger loans come with longer terms —
 -- maximum amounts grow from 116k (12 months) to 590k (60 months).
