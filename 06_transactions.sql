@@ -22,7 +22,7 @@ SELECT *, total_in - total_out AS net_flow FROM (
 		SUM(amount) FILTER (WHERE trans_type = 'VYDAJ') AS total_out
 	FROM trans
 	GROUP BY month_trans
-) AS monthly_flow
+) AS monthly_flow;
 
 -- Finding: Transaction volume grew consistently from 1993 to 1998.
 -- January shows negative net flow every year, likely large loan disbursements or standing order payments processed at year start.
@@ -58,7 +58,7 @@ SELECT
 	DATE_TRUNC('month', TO_DATE(date_raw, 'YYMMDD'))::DATE AS month_trans, 
 	COUNT(DISTINCT account_id) AS active_accounts 
 FROM trans
-GROUP BY month_trans
+GROUP BY month_trans;
 
 -- Finding: The number of active accounts grew steadily from 96 in January 1993
 -- to about 4,480 by the end of 1997. After that the growth stopped and stayed
@@ -76,7 +76,7 @@ SELECT
 	COUNT(*) AS transaction_count
 FROM trans
 GROUP BY account_id 
-ORDER BY stdv_balance DESC
+ORDER BY stdv_balance DESC;
 
 -- -- Finding: Balance stability varies a lot between accounts.
 -- The most stable accounts keep their balance almost flat, around 2,000 deviation on a 14,000 average balance.
@@ -127,7 +127,7 @@ SELECT
     ) AS in_out_ratio
 FROM trans
 GROUP BY account_id
-ORDER BY in_out_ratio ASC
+ORDER BY in_out_ratio ASC;
 
 -- Finding: Most accounts receive more money than they spend (ratio above 1.0).
 -- Account 2892 is the most extreme saver, receives 28 times more than it withdraws.
