@@ -168,7 +168,7 @@ SELECT
 FROM client_clean c
 JOIN disp d ON c.client_id = d.client_id
 LEFT JOIN card ON d.disp_id = card.disp_id 
-WHERE card.card_id IS NULL
+WHERE card.card_id IS NULL;
 
 -- Finding: 4,477 out of 5,369 clients (83%) do not have a credit card.
 -- This represents a significant cross-sell opportunity for the bank
