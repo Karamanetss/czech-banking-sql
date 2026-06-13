@@ -29,9 +29,11 @@ Anonymized data from a real Czech bank: 8 tables, just over a million transactio
 
 ## How to run
 
-Download the dataset from the source link below and unzip the CSVs.
-In 02_load_tables.sql, replace the file paths (D:/Studying/banking_analytics/...) with the path to your CSVs.
-Run the files in order (01 -> 07) in pgAdmin or psql. Files 01–03 build the schema, load data and create the views / 04–07 contain the analysis.
+1. Download the dataset from the source link below and unzip the CSVs.
+2. In `02_load_tables.sql`, replace the file paths (`D:/Studying/banking_analytics/...`) with the path to your CSVs.
+3. Run the files in order (01 -> 07) in pgAdmin or psql.
+
+Files 01–03 build the schema, load data and create the views / 04–07 contain the analysis.
 
 Source: https://relational.fel.cvut.cz/dataset/Financial
 
