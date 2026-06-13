@@ -7,7 +7,7 @@
 -- 1. Monthly cash flow. How do inflows (PRIJEM) and outflows (VYDAJ) evolve over time?
 -- 2. Seasonality. Which months have the highest transaction volume?
 -- 3. Monthly active accounts over time. How many unique accounts were active each month?
--- 4. Running balance per account. How does balance accumulate over time?
+-- 4. Balance volatility per account. Which accounts have the most unstable balance over time?
 -- 5. Anomaly detection. Which transactions exceed mean + 2 standard deviations?
 -- 6. Deposit-to-withdrawal ratio. Which accounts spend more than they receive?
 
