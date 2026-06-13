@@ -13,7 +13,7 @@ Source: https://relational.fel.cvut.cz/dataset/Financial
 ## Files
 
 - `01_create_tables.sql` — schema for all 8 tables
-- `02_load_data.sql` — loading the CSVs
+- `02_load_tables.sql` — loading the CSVs
 - `03_data_prep.sql` — null checks, date conversion, the views used everywhere
 - `04_credit_risk.sql` — default rates by amount, duration, region, card type
 - `05_customer_value.sql` — RFM segmentation, cross-sell targets, dormant accounts
