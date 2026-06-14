@@ -19,9 +19,10 @@ Anonymized data from a real Czech bank: 8 tables, just over a million transactio
   default around 5x more often than card holders (approx. 11% vs 2%) though most
   clients have no card, so this is a correlation worth investigating, not proof.
 
-- **Transactions are strongly seasonal.** Volume jumps 30-40% every June and
-  December and drops by a similar amount in February, driven largely by
-  recurring semi-annual payments.
+- **Transactions are strongly seasonal.** Monthly net cash flow is highly seasonal.
+  January and June run deeply negative (−13M and −0.7M), while February and December peak positive.
+  The January drop reflects year-start loan disbursements and standing orders,
+  while June likely reflects higher spending during the summer vacation period.
 
 - **The customer base hit a ceiling.** Active accounts grew steadily until late
   1997, then flattened around 4,480, the bank effectively stopped acquiring
