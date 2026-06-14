@@ -145,6 +145,7 @@ LIMIT 10;
 -- 8. Default rate by card type.
 --==============================================================
 
+-- 8a. Detailed: default rate per card type
 SELECT 
     COALESCE(c.card_type, 'No card') AS card_type,
     COUNT(*) AS total_loans,
@@ -156,7 +157,28 @@ LEFT JOIN card c ON c.disp_id = d.disp_id
 GROUP BY c.card_type
 ORDER BY default_rate_pct DESC;
 
--- Finding: Clients without a card have significantly higher default rate (10.81%) vs card holders (2.26-6.25%).
--- Card ownership appears to correlate with lower credit risk.
--- Note: small sample for gold (16) and junior (21) cards limits conclusions.
--- Majority of loans (657/827) belong to clients without a card.
+-- Finding: Clients without a card default far more often (10.81%) than card holders (2.26-6.25%).
+-- Card ownership correlates with lower credit risk.
+-- Note: gold (16) and junior (21) samples are too small for separate conclusions.
+-- Majority of loans (657 of 827) belong to clients without a card.
+
+
+-- 8b. Grouped: card holders vs non-holders
+SELECT 
+    CASE 
+        WHEN c.card_id IS NULL THEN 'No card'
+        ELSE 'Has card'
+    END AS card_status,
+    COUNT(*) AS total_loans,
+    ROUND(AVG(l.is_default) * 100, 2) AS default_rate_pct
+FROM loan_clean l
+JOIN account a ON l.account_id = a.account_id
+JOIN disp d ON d.account_id = a.account_id
+LEFT JOIN card c ON c.disp_id = d.disp_id
+GROUP BY card_status
+ORDER BY default_rate_pct DESC;
+
+-- Finding: Clients without a card default roughly 5x more often than card holders.
+-- Card types grouped together due to small per-type samples (see 8a).
+-- Likely reflects that cards are issued to already-reliable clients, not that
+-- cards reduce risk. Correlation worth investigating, not a causal lever.
